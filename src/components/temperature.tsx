@@ -55,13 +55,13 @@ const Temperature = () => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h2>{temperature}</h2>
           <span>
-            {temperatureNumber >= 55
+            {temperatureNumber >= 30
               ? "O café está pronto! ☕️"
               : "O café não está pronto 😔"}
           </span>
         </div>
       </div>
-      {temperatureNumber >= 55 && <Coffee />}
+      {temperatureNumber >= 30 && <Coffee />}
       {/* <LoaderUrso /> */}
     </div>
   );
