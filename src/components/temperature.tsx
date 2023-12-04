@@ -8,11 +8,11 @@ const Temperature = () => {
   const [temperature, setTemperature] = useState<string>("");
   const wsRef = useRef<WebSocket | null>(null);
   const [temperatureNumber, setTemperatureNumber] = useState<number>(0);
-  const {data: session, status} = useSession();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     // Inicializa o WebSocket usando a API nativa do navegador
-    wsRef.current = new WebSocket("ws://localhost:8080");
+    wsRef.current = new WebSocket("ws://be18-177-203-162-109.ngrok-free.app");
 
     // const
 
@@ -37,13 +37,30 @@ const Temperature = () => {
     };
   }, []);
 
+  console.log(typeof temperatureNumber);
+
   return (
-    <div>
-      <h1>Temperature</h1>
-      <h2>{temperature}</h2>
-      <h2>{temperatureNumber}</h2>
-      <LoaderUrso />
-      <Coffee />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: "5rem",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h2>{temperature}</h2>
+          <span>
+            {temperatureNumber >= 55 && temperatureNumber <= 63
+              ? "O café está pronto! ☕️"
+              : "O café não está pronto 😔"}
+          </span>
+        </div>
+      </div>
+      {temperatureNumber >= 55 && temperatureNumber <= 63 && <Coffee />}
+      {/* <LoaderUrso /> */}
     </div>
   );
 };

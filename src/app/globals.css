@@ -213,6 +213,13 @@ a {
   background-color: #615e5e;
 }
 
+button{
+  width: fit-content;
+  padding: 2px;
+  height: 28px;
+
+}
+
 .coffee-header__button-one {
   left: 15px;
 }

@@ -15,29 +15,19 @@ export default function Login() {
 
   if (status === "unauthenticated") {
     return (
-      <>
+      <div>
         <p>Você não está logado</p>
         <button onClick={() => signIn()}>Logar</button>
-      </>
+      </div>
     );
   }
 
   if (status === "authenticated") {
     return (
-      <>
+      <div>
         <p>Você está logado como {session?.user?.email}</p>
         <button onClick={() => signOut()}>Deslogar</button>
-      </>
+      </div>
     );
   }
-
-
-  console.log(session);
-  
-
-  return (
-    <main>
-      <button onClick={handleSignIn}>Logar</button>
-    </main>
-  );
 }
