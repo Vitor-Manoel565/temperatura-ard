@@ -12,12 +12,14 @@ const Temperature = () => {
 
   useEffect(() => {
     // Inicializa o WebSocket usando a API nativa do navegador
-    wsRef.current = new WebSocket("wss://be18-177-203-162-109.ngrok-free.app");
+    wsRef.current = new WebSocket("wss://aad1-177-174-221-3.ngrok-free.app ");
 
     // const
 
     wsRef.current.onmessage = (event) => {
       setTemperature(event.data);
+      console.log(event.data);
+      
       const partes = event.data.split(":");
       const numeroComoString = partes[1].trim().split(" ")[0];
       setTemperatureNumber(parseFloat(numeroComoString));
@@ -53,13 +55,13 @@ const Temperature = () => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h2>{temperature}</h2>
           <span>
-            {temperatureNumber >= 55 && temperatureNumber <= 63
+            {temperatureNumber >= 55
               ? "O café está pronto! ☕️"
               : "O café não está pronto 😔"}
           </span>
         </div>
       </div>
-      {temperatureNumber >= 55 && temperatureNumber <= 63 && <Coffee />}
+      {temperatureNumber >= 55 && <Coffee />}
       {/* <LoaderUrso /> */}
     </div>
   );
