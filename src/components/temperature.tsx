@@ -12,7 +12,7 @@ const Temperature = () => {
 
   useEffect(() => {
     // Inicializa o WebSocket usando a API nativa do navegador
-    wsRef.current = new WebSocket("ws://be18-177-203-162-109.ngrok-free.app");
+    wsRef.current = new WebSocket("ws:https://be18-177-203-162-109.ngrok-free.app");
 
     // const
 
